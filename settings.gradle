@@ -1,0 +1,2 @@
+rootProject.name='PRO-RestaurantTool'
+include ':app'
