@@ -19,21 +19,21 @@
         </activity>
 
 
-        <activity android:name=".menuActivity">
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MENU" />
 
             </intent-filter>
         </activity>
 
-        <activity android:name=".reservationActivity">
+        <activity android:name=".ReservationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.RESERVATION" />
 
             </intent-filter>
         </activity>
 
-        <activity android:name=".seatActivity">
+        <activity android:name=".SeatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEAT" />
 
@@ -41,7 +41,7 @@
         </activity>
 
 
-        <activity android:name=".statisticActivity">
+        <activity android:name=".StatisticActivity">
             <intent-filter>
                 <action android:name="android.intent.action.STATISTIC" />
 
@@ -56,7 +56,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PopUpWindow"></activity>
 
 
     </application>

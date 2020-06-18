@@ -2,15 +2,13 @@ package com.example.pro_restauranttool
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_seat.*
 
 
-class seatActivity : AppCompatActivity(), View.OnClickListener {
+class SeatActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +50,7 @@ class seatActivity : AppCompatActivity(), View.OnClickListener {
             // input exists -> clear activity
             if (msg.trim().length>0){
 
-                val seat = Intent(this, seatActivity::class.java)
+                val seat = Intent(this, SeatActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(seat)
 

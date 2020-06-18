@@ -7,54 +7,70 @@
 
     <string name="JaNein">Ja/Nein</string>
 
+    <string name="selected_item">Auswahl:</string>
+    <string name="fail_input">Keine Eingabe des Typs!</string>
+
+
+    <string-array name="SpinnerItems">
+        <item>Normaler Besuch</item>
+        <item>Gäste mit Kinder</item>
+        <item>Geburtstagsfeier</item>
+        <item>Firmenfeier</item>
+    </string-array>
+
+
+    <string name="tab">\u0009</string>
+
+
     <string name="allergies">
     <br>
-    A    für glutenhaltiges Getreide \n</br>
+    A \u0009    für glutenhaltiges Getreide \n</br>
       <br>
-    B    für Krebstiere und -erzeugnisse \n</br>
+    B \u0009   für Krebstiere und -erzeugnisse \n</br>
          <br>
-    C    für Eier und daraus gewonnene Erzeugnisse \n</br>
+    C \u0009   für Eier und daraus gewonnene Erzeugnisse \n</br>
          <br>
-    D    für Fisch und Fischerzeugnisse (außer Fischgelatine) \n</br>
+    D \u0009   für Fisch und Fischerzeugnisse (außer Fischgelatine) \n</br>
          <br>
-    E     für Erdnüsse und -erzeugnisse \n</br>
+    E \u0009   für Erdnüsse und -erzeugnisse \n</br>
          <br>
-    F     für Soja (-bohnen) und -erzeugnisse \n</br>
+    F \u0009    für Soja (-bohnen) und -erzeugnisse \n</br>
          <br>
-    G     für Milch und Milcherzeugnisse (inklusive Laktose) \n</br>
+    G \u0009    für Milch und Milcherzeugnisse (inklusive Laktose) \n</br>
          <br>
-    H     für Schalenfrüchte und daraus gewonnene Erzeugnisse \n</br>
+    H \u0009    für Schalenfrüchte und daraus gewonnene Erzeugnisse \n</br>
          <br>
-    L      für Sellerie und -erzeugnisse \n</br>
+    L \u0009     für Sellerie und -erzeugnisse \n</br>
          <br>
-    M     für Senf und Senferzeugnisse \n</br>
+    M \u0009    für Senf und Senferzeugnisse \n</br>
          <br>
-    N      für Sesamsamen und -erzeugnisse \n</br>
+    N \u0009    für Sesamsamen und -erzeugnisse \n</br>
          <br>
-    O      für Schwefeldioxid und -erzeugnisse \n</br>
+    O \u0009     für Schwefeldioxid und -erzeugnisse \n</br>
          <br>
-    P      für Lupinen und daraus hergestellte Produkte \n</br>
+    P \u0009     für Lupinen und daraus hergestellte Produkte \n</br>
          <br>
-    R     für Weichtiere wie Schnecken, Muscheln, Tintenfische und daraus hergestellte Erzeugnisse \n</br>
+    R \u0009    für Weichtiere wie Schnecken, Muscheln, Tintenfische und daraus hergestellte Erzeugnisse \n</br>
     </string>
+
 
     <string name="menuH1">Fischwochen vom 1.4 - 27.4.:</string>
 
     <string name="menuText">
         <br>
-        Forellenfilet (D)                      13,80 € \n</br>
+        Forellenfilet (D) \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009 13,80 € \n</br>
         <br>
         Frisches Forellenfilet mit Petersilienkartoffeln \n\n</br>
         <br>
-        Forelle paniert (A, C, D)        15,30 € \n</br>
+        Forelle paniert (A, C, D) \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009 15,30 € \n</br>
         <br>
         Frische Forelle in Panier mit Petersilienkartoffeln \n\n</br>
         <br>
-        Zander (D)                               18,00 € \n</br>
+        Zander (D) \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009 18,00 € \n</br>
         <br>
         Zanderfilet mit Reis und Kartoffeln \n\n</br>
         <br>
-        Lachs (D)                                 10,80 €\n</br>
+        Lachs (D) \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009 10,80 €\n</br>
          <br>
         Bester Lachs mit Kartoffeln und kleinem Salat\n</br>
 
@@ -72,5 +88,13 @@
 
     </string>
 
+    <string name="tablewindow">
+    <br>
+        Tischnummer: \n</br>
+    <br>
+        Anzahl der Sitzplätze: \n </br>
+    <br>
+        Status: \n</br>
+    </string>
 
 </resources>
