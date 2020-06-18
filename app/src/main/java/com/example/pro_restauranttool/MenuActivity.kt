@@ -27,6 +27,7 @@ class MenuActivity : AppCompatActivity(), View.OnClickListener {
                 .setView(mDialogView)
                 .setTitle("Allergene")
 
+
             //show dialog
             val mAlertDialog = mBuilder.show()
 
