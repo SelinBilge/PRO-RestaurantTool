@@ -189,6 +189,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
 
         } else {
             // neue Reservierung anlegen
+            // bild von Tisch austauschen mit grau
         }
 
     }

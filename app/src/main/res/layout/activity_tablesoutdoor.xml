@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,28 +9,9 @@
     tools:context=".MainActivity">
 
 
-
-
     <ImageButton
 
-        android:id="@+id/table3"
-        android:layout_width="109dp"
-        android:layout_height="87dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:background="@color/background"
-        android:scaleType="centerInside"
-        android:src="@drawable/table_white8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
-
-    <ImageButton
-
-        android:id="@+id/table6"
+        android:id="@+id/table15"
         android:layout_width="84dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -42,18 +24,35 @@
         app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <ImageButton
+
+        android:id="@+id/table18"
+        android:layout_width="84dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:src="@drawable/table_white4"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.481" />
 
     <ImageButton
 
-        android:id="@+id/table2"
+        android:id="@+id/table14"
         android:layout_width="68dp"
         android:layout_height="54dp"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
         android:background="@color/background"
-        android:scaleType="centerInside"
         android:src="@drawable/table_white2"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -63,14 +62,14 @@
 
     <ImageButton
 
-        android:id="@+id/table4"
+        android:id="@+id/table16"
         android:layout_width="84dp"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
         android:background="@color/background"
+        android:src="@drawable/table_white4"
+        android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        android:src="@drawable/table_white6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
@@ -80,14 +79,14 @@
 
     <ImageButton
 
-        android:id="@+id/table7"
-        android:layout_width="84dp"
-        android:layout_height="60dp"
+        android:id="@+id/table19"
+        android:layout_width="109dp"
+        android:layout_height="87dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:background="@color/background"
         android:scaleType="centerInside"
-        android:src="@drawable/table_white4"
+        android:src="@drawable/table_white8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
@@ -97,7 +96,7 @@
 
     <ImageButton
 
-        android:id="@+id/table8"
+        android:id="@+id/table20"
         android:layout_width="84dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -114,82 +113,14 @@
 
     <ImageButton
 
-        android:id="@+id/table9"
+        android:id="@+id/table17"
         android:layout_width="84dp"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
         android:background="@color/background"
-        android:scaleType="centerInside"
         android:src="@drawable/table_white6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.868"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.634" />
-
-    <ImageButton
-
-        android:id="@+id/table10"
-        android:layout_width="68dp"
-        android:layout_height="54dp"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:background="@color/background"
         android:scaleType="centerInside"
-        android:src="@drawable/table_white2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
-
-    <ImageButton
-
-        android:id="@+id/table11"
-        android:layout_width="68dp"
-        android:layout_height="54dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:background="@color/background"
-        android:scaleType="centerInside"
-        android:src="@drawable/table_white2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
-
-    <ImageButton
-
-        android:id="@+id/table12"
-        android:layout_width="68dp"
-        android:layout_height="54dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:background="@color/background"
-        android:scaleType="centerInside"
-        android:src="@drawable/table_white4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.868"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
-
-    <ImageButton
-
-        android:id="@+id/table5"
-        android:layout_width="84dp"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:background="@color/background"
-        android:scaleType="centerInside"
-        android:src="@drawable/table_white4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -199,14 +130,14 @@
 
     <ImageButton
 
-        android:id="@+id/table1"
-        android:layout_width="68dp"
-        android:layout_height="54dp"
+        android:id="@+id/table13"
+        android:layout_width="84dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
         android:background="@color/background"
+        android:src="@drawable/table_white6"
+        android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        android:src="@drawable/table_white2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
@@ -218,15 +149,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sitzplätze im Haus"
+        android:text="Sitzplätze im Gastgarten"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
+        app:layout_constraintVertical_bias="0.188" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

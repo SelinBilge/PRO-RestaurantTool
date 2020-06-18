@@ -94,7 +94,14 @@
     <br>
         Anzahl der Sitzplätze: \n </br>
     <br>
+        Kindersitzplätze: \n</br>
+     <br>
+        Gastgarten: \n</br>
+    <br>
         Status: \n</br>
     </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
