@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         seats.setOnClickListener{
             Log.i("LOG", "seats was clicked")
-            val seat = Intent(this, SeatActivity::class.java)
+            val seat = Intent(this, tablesActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(seat)
 

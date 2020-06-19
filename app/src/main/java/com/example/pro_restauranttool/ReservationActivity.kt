@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_reservation.*
+import kotlinx.android.synthetic.main.activity_seat.*
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -61,6 +62,10 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+
+        getWaitingTime()
+
+        getTable()
 
 
         // Ok button
@@ -297,6 +302,31 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
         dateEditText.setText(sdf.format(myCalendar.time))
     }
+
+
+    fun getWaitingTime(){
+
+        // app gets waiting Time from occupied seats
+
+        val number = 7
+
+        waitTime.setText("$number min")
+
+    }
+
+
+
+    fun getTable (){
+
+        // get random empty table
+
+        val tablenumber = 4
+
+        tableNum.setText("$tablenumber")
+
+    }
+
+
 
 
 }

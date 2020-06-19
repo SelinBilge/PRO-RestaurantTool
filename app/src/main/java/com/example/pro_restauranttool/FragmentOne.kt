@@ -7,11 +7,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_tables.*
+import kotlinx.android.synthetic.main.activity_tables.view.*
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param1"
+
+lateinit var tab1: ImageButton
+lateinit var tab2: ImageButton
+lateinit var tab3: ImageButton
+lateinit var tab4: ImageButton
+lateinit var tab5: ImageButton
+lateinit var tab6: ImageButton
 
 
 
@@ -26,13 +35,19 @@ class FragmentOne : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater!!.inflate(R.layout.activity_tables, container, false)
+        val view: View =  inflater.inflate(R.layout.activity_tables, container, false)
+        //val view: View = inflater!!.inflate(R.layout.activity_tables, container, false)
 
 
-/*
-        table1.setOnClickListener (this)
+         tab1 = view.table1
+
+
+
+
+        tab1.setOnClickListener(this)
         //  displayInfos()
 
+        /*
         table2.setOnClickListener {
             // displayInfos()
 
@@ -87,6 +102,8 @@ class FragmentOne : Fragment(), View.OnClickListener {
 
     }
 
+
+    /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -97,11 +114,13 @@ class FragmentOne : Fragment(), View.OnClickListener {
 
     }
 
+     */
+
     override fun onClick(v: View?) {
         when(v!!.id){
 
             R.id.table1 -> {
-                Log.i("TAG", "Button1")
+                Log.i("TAG", "Button1 ist GUCCI")
                 // table1.setImageResource(R.drawable.table_white4)
                 //tableNr = "1";
                 //  displayInfos()
