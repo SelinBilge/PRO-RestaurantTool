@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "699378323736",
+    "firebase_url": "https://tool-3c19f.firebaseio.com",
+    "project_id": "tool-3c19f",
+    "storage_bucket": "tool-3c19f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699378323736:android:407865c59b6cb9ef788e6d",
+        "android_client_info": {
+          "package_name": "com.example.pro_restauranttool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699378323736-iipe5queviajmj95gdu558cie2bogapu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEdeD4Qpt_4UsyaqyIdXhFtEvw4kZAAAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699378323736-iipe5queviajmj95gdu558cie2bogapu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
