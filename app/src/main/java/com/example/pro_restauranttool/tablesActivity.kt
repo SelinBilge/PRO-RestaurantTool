@@ -3,8 +3,11 @@ package com.example.pro_restauranttool
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_tables2.*
+
+
 
 
 class tablesActivity : AppCompatActivity() {
@@ -15,7 +18,7 @@ class tablesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tables2)
 
-        toolbar.setTitle("Tab Layout")
+        toolbar.setTitle("")
         setSupportActionBar(toolbar)
 
         val fragmentAdapter = PageAdapter(supportFragmentManager)
