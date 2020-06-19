@@ -15,7 +15,6 @@ class tablesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tables2)
 
-
         toolbar.setTitle("Tab Layout")
         setSupportActionBar(toolbar)
 
