@@ -214,7 +214,6 @@ class FragmentOne : Fragment() {
         // Button for reservation
         mDialogView.reservation.setOnClickListener {
             Log.i("TAG", "Reservation Button")
-
             // make new reservation
 
         }
