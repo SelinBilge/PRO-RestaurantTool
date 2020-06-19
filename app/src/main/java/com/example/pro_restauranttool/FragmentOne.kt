@@ -42,8 +42,6 @@ class FragmentOne : Fragment(), View.OnClickListener {
          tab1 = view.table1
 
 
-
-
         tab1.setOnClickListener(this)
         //  displayInfos()
 
