@@ -12,8 +12,9 @@ class tablesActivity : AppCompatActivity() {
 
     @Override
      override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tables2);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tables2)
+
 
         toolbar.setTitle("Tab Layout")
         setSupportActionBar(toolbar)
