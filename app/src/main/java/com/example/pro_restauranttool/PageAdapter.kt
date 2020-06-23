@@ -7,20 +7,15 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 class PageAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm) {
 
-
     override fun getItem(position: Int): Fragment {
-
         return when(position){
-
             0 -> {
                 FragmentOne()
             }
-
             else -> {
                 FragmentTwo()
             }
         }
-
     }
 
     override fun getCount(): Int {
@@ -30,10 +25,7 @@ class PageAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
             0 -> "Gasthaus"
-
             else -> return "Gastgarten"
         }
     }
-
-
 }

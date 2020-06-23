@@ -28,7 +28,7 @@ class SeatActivity : AppCompatActivity(), View.OnClickListener {
             //check if the EditText have values or not
             if (msg.trim().length>0){
 
-                val seat = Intent(this, tablesActivity::class.java)
+                val seat = Intent(this, TablesActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(seat)
 
@@ -60,10 +60,7 @@ class SeatActivity : AppCompatActivity(), View.OnClickListener {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(backToMain)
             }
-
         }
-
-
     }
 
     override fun onClick(v: View?) {

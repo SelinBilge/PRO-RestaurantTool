@@ -49,7 +49,7 @@
         </activity>
 
 
-        <activity android:name=".tablesActivity">
+        <activity android:name=".TablesActivity" android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.TABLES" />
 

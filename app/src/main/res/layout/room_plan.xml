@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+
+        android:paddingBottom="50dp"
+        tools:context=".MainActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="332dp"
+            android:layout_height="481dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/floor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/showAllReservations">
+
+            <ImageButton
+
+                android:id="@+id/table14"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="88dp"
+                android:layout_marginBottom="128dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table6"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="56dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table5"
+                android:layout_width="65dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#000C0C0C"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table7"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="172dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table8"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="124dp"
+                android:layout_marginTop="44dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table13"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginBottom="152dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table10"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginBottom="216dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white4"
+                android:tag="4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table15"
+                android:layout_width="67dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white6"
+                android:tag="6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table9"
+                android:layout_width="67dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white6"
+                android:tag="6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table16"
+                android:layout_width="67dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="172dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white6"
+                android:tag="6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table4"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="116dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white2"
+                android:tag="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table3"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="116dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00FFFFFF"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white2"
+                android:tag="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table2"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="116dp"
+                android:layout_marginEnd="68dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white2"
+                android:tag="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table1"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="116dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white2"
+                android:tag="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table17"
+                android:layout_width="94dp"
+                android:layout_height="82dp"
+                android:layout_marginEnd="76dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white8"
+                android:tag="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table12"
+                android:layout_width="94dp"
+                android:layout_height="97dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="100dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00690F0F"
+                android:rotation="90"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white8"
+                android:tag="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+
+                android:id="@+id/table11"
+                android:layout_width="67dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="92dp"
+                android:layout_marginBottom="212dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@color/background"
+                android:scaleType="centerInside"
+                android:src="@drawable/table_white6"
+                android:tag="6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/showAllReservations"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:background="#FFFFFF"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Alle Reservierungen anzeigen"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

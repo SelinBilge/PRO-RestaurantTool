@@ -22,6 +22,7 @@ class Time(private val hours:Int, private val minutes:Int) {
             return today;
         }
 
+
         @RequiresApi(Build.VERSION_CODES.O)
         fun getTime(): Time {
             val now = LocalDateTime.now()
@@ -31,11 +32,14 @@ class Time(private val hours:Int, private val minutes:Int) {
         }
     }
 
+    /**
+     * Returns true if this time is before the other Time
+     */
     fun compareTime(time: Time):Boolean {
         if(this.hours < time.hours) {
             return true;
         } else if(this.hours == time.hours) {
-            if(this.minutes < time.minutes) {
+            if(this.minutes <= time.minutes) {
                 return true
             }
         }
@@ -44,13 +48,6 @@ class Time(private val hours:Int, private val minutes:Int) {
 
     fun isBetween(time1: Time, time2: Time): Boolean {
         return !this.compareTime(time1) && this.compareTime(time2)
-    }
-
-    fun compareTime(_time: String): Boolean {
-        val time = _time.split(":")
-        val hours = time[0].toInt()
-        val minutes = time[1].toInt()
-        return compareTime(Time(hours, minutes))
     }
 
     fun addTime(duration: Int): Time {
@@ -63,6 +60,14 @@ class Time(private val hours:Int, private val minutes:Int) {
             aHours -= 24
         }
         return Time(aHours, aMinutes)
+    }
+
+    fun getDuration(time2:Time): Int {
+        //TODO über 24 Uhr
+        var dHours = (this.hours - time2.hours) * 60
+        dHours += this.minutes
+        dHours -= time2.minutes
+        return dHours
     }
 
     override fun toString(): String {

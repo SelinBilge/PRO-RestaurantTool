@@ -3,6 +3,7 @@ package com.example.pro_restauranttool
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -16,8 +17,10 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.collections.ArrayList
+
 //TODO Eingebeprüfung verbessern
-//TODO Nochmal Duchtesten
+//TODO Tagg bei Reservierungen einfügen, Tischnummer-Option
 
 class ReservationActivity : AppCompatActivity(), View.OnClickListener {
     var db = FirebaseFirestore.getInstance()
@@ -48,7 +51,8 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
         val time: String = timeInput.text.toString()
         val personCount: String = personCountInput.text.toString()
         val duration: String = durationInput.text.toString()
-        val seats: String = personCountInput.text.toString();
+        val seats: String = personCountInput.text.toString()
+        val name: String = nameInput.text.toString()
 
         //check if the EditText have values or not
         if (date.trim().isEmpty()
@@ -89,7 +93,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
                 message(text = "Haben sie einen Augenblick geduld")
             }
         //All fields are set correctly, beginn search for a table
-        checkTables(choosenTime, date, duration.toInt(), seats.toInt(), outdoorTable, kidsTable);
+        checkTables(choosenTime, date, duration.toInt(), seats.toInt(), outdoorTable, kidsTable, name);
     }
 
 
@@ -98,17 +102,17 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * die den Anforderungen entsprechen
      * Ruft solange checkReservation auf bis er einen Table aus dem Array gefunden hat, der frei ist
      */
-    private fun getTable(index: Int, time: Time, date: String, duration: Int, found: Boolean, tableArray: IntArray) {
+    private fun getTable(index: Int, time: Time, date: String, duration: Int, found: Boolean, tableArray: ArrayList<TableData>, seats: Int, name: String) {
         if(found) {
-            val tableId = tableArray[index]
-            reserveTable(tableId, date, time, duration)
+            val tableId = tableArray[index].id
+            reserveTable(tableId, date, time, duration, seats, name)
         } else if(index >= tableArray.size) {
             dialog.show()
             dialog.title(text = "Kein Tisch gefunden")
             dialog.message(text = "Es sind zu dieser Zeit leider keine Plätze mehr frei")
             dialog.positiveButton(text = "Zurück")
         } else {
-            checkReservation(index, date, time, duration, tableArray)
+            checkReservation(index, date, time, duration, tableArray, seats, name)
         }
     }
 
@@ -116,19 +120,21 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
     /**
      * Gibt einen Array zurück mit jenen Tisch ids, die den Anforderungen entsprechen
      */
-    fun checkTables(time: Time, date: String, duration: Int, seats: Int, outdoors: Boolean, kids: Boolean) {
+    //TODO so sortieren, dass wenn man einen Tisch für 2 bestellt keinen für 8 Personen bekommt
+    fun checkTables(time: Time, date: String, duration: Int, seats: Int, outdoors: Boolean, kids: Boolean, name: String) {
         db.collection("table")
             .whereGreaterThanOrEqualTo("seats", seats)
             .whereEqualTo("outdoors", outdoors)
             .whereEqualTo("kids_table", kids)
             .get()
             .addOnSuccessListener { documents ->
-                var arr = IntArray(documents.size())
-                for ((index, document) in documents.withIndex()) {
-                    arr[index] = document.id.toInt();
+                val arr = arrayListOf<TableData>()
+                for (document in documents) {
+                    arr.add(TableData(document.id.toInt(), (document["seats"] as Long).toInt()))
                 }
+                arr.sort()
                 if(arr.isNotEmpty()) {
-                    getTable(0, time, date, duration, false, arr)
+                    getTable(0, time, date, duration, false, arr, seats, name)
                 } else {
                     dialog.show()
                     dialog.title(text = "Kein Tisch gefunden")
@@ -145,20 +151,21 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * Checkt ob der Tisch mit der eingerechneten dauer frei ist, checkt auch ob
      * noch Gäste auf einem Tisch sitzen und noch nicht ausgechecked haben
      */
-    fun checkReservation(index: Int, date: String, time: Time, duration: Int, tableArray: IntArray): Boolean {
+    fun checkReservation(index: Int, date: String, time: Time, duration: Int, tableArray: ArrayList<TableData>, seats: Int, name:String): Boolean {
         val newResTill = time.addTime(duration);
         db.collection("reservation")
-            .whereEqualTo("table_id", tableArray[index])
+            .whereEqualTo("table_id", tableArray[index].id)
             .whereEqualTo("date", date)
             .get()
             .addOnSuccessListener { documents ->
                 var taken = false;
-                var testTime = time;
                 for(document in documents) {
                     val  resTill = Time.getTime(document["till"] as String)
                     val  resFrom = Time.getTime(document["from"] as String)
+                    val  ended = document["ended"] as Boolean
                     if(time.compareTime(resTill)
-                        && resFrom.compareTime(newResTill)) {
+                        && resFrom.compareTime(newResTill)
+                        && !ended) {
                         taken = true;
                     }
                     //Reservation has ended but Guests have not checked out
@@ -171,9 +178,9 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 if(taken) {
                     val newIndex = index+1;
-                    getTable(newIndex, time, date, duration, false, tableArray);
+                    getTable(newIndex, time, date, duration, false, tableArray, seats, name);
                 } else {
-                    getTable(index, time, date, duration, true, tableArray);
+                    getTable(index, time, date, duration, true, tableArray, seats, name);
                 }
             }
         return true;
@@ -184,12 +191,12 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * Reserviert einen Tisch für eine bestimmte Dauer, Reservierung muss manuell wieder
      * aufgehoben werden
      */
-    fun reserveTable(table: Int, date: String, from: Time,duration: Int) {
+    fun reserveTable(table: Int, date: String, from: Time,duration: Int, seats: Int, name: String) {
         clearFields()
         val till = from.addTime(duration)
         dialog.show()
         dialog.title(text = "Suche erfolgreich")
-        dialog.message(text = "Der Tisch $table wurde am $date, von $from bis $till reserviert")
+        dialog.message(text = "Der Tisch $table wurde am $date, von $from bis $till für $seats Personen reserviert")
         dialog.positiveButton(text = "Ok")
         val reservation = mutableMapOf<String, Any>()
         reservation["table_id"] = table
@@ -197,12 +204,17 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
         reservation["from"] = from.toString()
         reservation["till"] = till.toString()
         reservation["duration"] = duration
-        reservation["seats_reserved"] = 2
+        reservation["seats_reserved"] = seats
+        reservation["name"] = name
         reservation["ended"] = false
         db.collection("reservation").add(reservation)
     }
 
 
+
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.dateInput -> {
@@ -287,6 +299,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
         personCountInput.text.clear()
         durationInput.text.clear()
         personCountInput.text.clear()
+        nameInput.text.clear()
     }
 
 
