@@ -71,7 +71,7 @@ class Time(private val hours:Int, private val minutes:Int) {
     }
 
     override fun toString(): String {
-        var sHours: String = if(hours <= 9) {
+        val sHours: String = if(hours <= 9) {
             "0$hours"
         } else {
             hours.toString()

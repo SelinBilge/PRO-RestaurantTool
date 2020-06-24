@@ -4,13 +4,13 @@ data class ReservationData(val id:Int, val date:String, val from:Time, val till:
     override fun compareTo(other: ReservationData): Int {
         var da = date.split(".")
         var dao = other.date.split(".")
-        if(da[0].toInt() < dao[0].toInt()) {
+        if(da[2].toInt() < dao[2].toInt()) {
             //this is bevore other
-            return -1
-        }
-        if(da[0].toInt() > dao[0].toInt()) {
-            //this is after other
             return 1
+        }
+        if(da[2].toInt() > dao[2].toInt()) {
+            //this is after other
+            return -1
         }
         //Jahr is gleich
         if(da[1].toInt() < dao[1].toInt()) {
@@ -22,11 +22,11 @@ data class ReservationData(val id:Int, val date:String, val from:Time, val till:
             return -1
         }
         //Monat ist gleich
-        if(da[2].toInt() < dao[2].toInt()) {
+        if(da[0].toInt() < dao[0].toInt()) {
             //this is bevore other
             return 1
         }
-        if(da[2].toInt() > dao[2].toInt()) {
+        if(da[0].toInt() > dao[0].toInt()) {
             //this is bevore other
             return -1
         }

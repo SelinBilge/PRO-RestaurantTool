@@ -20,12 +20,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 //TODO Eingebeprüfung verbessern
-//TODO Tagg bei Reservierungen einfügen, Tischnummer-Option
 
 class ReservationActivity : AppCompatActivity(), View.OnClickListener {
     var db = FirebaseFirestore.getInstance()
     lateinit var dialog: MaterialDialog
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservation)
@@ -45,6 +45,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * ausgegeben,
      * Ist alles korrekt Eingegben worden wird checkTables aufgerufen
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun validateInput(view: View) {
         //read value from EditText to a String variable
         val date: String = dateInput.text.toString()
@@ -78,7 +79,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
         if (dateInput.text.toString() == Time.getTodaysDate()) {
             start = Time.getTime()
         }
-        //TODO könnte sein das mit einem Minutenwechsel die Eingabe für jetzt ungültig wird
+        //TODO Wenn Minute wechselt und für jetzt reserviert wird, Failed die Reservierung
         if (!choosenTime.isBetween(start, stop)) {
             timeInput.text.clear()
             Toast.makeText(this, "Wähle eine gültige Uhrzeit", Toast.LENGTH_SHORT).show()
@@ -102,6 +103,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * die den Anforderungen entsprechen
      * Ruft solange checkReservation auf bis er einen Table aus dem Array gefunden hat, der frei ist
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun getTable(index: Int, time: Time, date: String, duration: Int, found: Boolean, tableArray: ArrayList<TableData>, seats: Int, name: String) {
         if(found) {
             val tableId = tableArray[index].id
@@ -120,7 +122,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
     /**
      * Gibt einen Array zurück mit jenen Tisch ids, die den Anforderungen entsprechen
      */
-    //TODO so sortieren, dass wenn man einen Tisch für 2 bestellt keinen für 8 Personen bekommt
+    @RequiresApi(Build.VERSION_CODES.O)
     fun checkTables(time: Time, date: String, duration: Int, seats: Int, outdoors: Boolean, kids: Boolean, name: String) {
         db.collection("table")
             .whereGreaterThanOrEqualTo("seats", seats)
@@ -151,6 +153,7 @@ class ReservationActivity : AppCompatActivity(), View.OnClickListener {
      * Checkt ob der Tisch mit der eingerechneten dauer frei ist, checkt auch ob
      * noch Gäste auf einem Tisch sitzen und noch nicht ausgechecked haben
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun checkReservation(index: Int, date: String, time: Time, duration: Int, tableArray: ArrayList<TableData>, seats: Int, name:String): Boolean {
         val newResTill = time.addTime(duration);
         db.collection("reservation")

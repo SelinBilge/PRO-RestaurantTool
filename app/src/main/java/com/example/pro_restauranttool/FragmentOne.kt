@@ -35,6 +35,9 @@ class FragmentOne : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Saving the Instance in the TableActivity
+        val parentActivity = activity
+        (parentActivity as TablesActivity).fragmentOne = this
         // Inflate the layout for this fragment
         val view: View =  inflater.inflate(R.layout.room_plan, container, false)
         getTables(view)

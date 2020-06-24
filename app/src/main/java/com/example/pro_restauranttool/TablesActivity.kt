@@ -2,9 +2,9 @@ package com.example.pro_restauranttool
 
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,17 +21,20 @@ import kotlinx.android.synthetic.main.dialog_table_available.*
 import kotlinx.android.synthetic.main.dialog_table_available.kidsTable
 import kotlinx.android.synthetic.main.dialog_table_available.seatCount
 import kotlinx.android.synthetic.main.dialog_table_taken.*
+import java.util.*
 
-//TODO alle Reservierungen anzeigen
-//TODO nächste Reservierung ändert sich nur bei Layout refresh
 class TablesActivity : AppCompatActivity(),
         FragmentOne.tableListener,
         ReservationListAdapter.DeleteReservationListener,
-        AllReservationListAdapter.DeleteReservationListener{
+        AllReservationListAdapter.DeleteReservationListener,
+        FragmentTwo.tableListener{
     lateinit var dialog: AlertDialog
+    lateinit var fragmentTwo: FragmentTwo
+    lateinit var fragmentOne: FragmentOne
     var taken = false
     var db = Firebase.firestore
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @Override
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +45,26 @@ class TablesActivity : AppCompatActivity(),
         supportActionBar?.setDisplayShowTitleEnabled(true);
         toolbar.title = "Tischplan"
 
-        //Adabter für das Tab Layout
+        //Adapter für das Tab Layout
         val fragmentAdapter = PageAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
         tabLayout.setupWithViewPager(viewPager)
+
+        //Calls refresh every minute
+        val c = Calendar.getInstance()
+        val second = c[Calendar.SECOND]
+        var stopFor = 60 - second
+        val handler = Handler()
+        val runnable = object: Runnable {
+            override fun run() {
+                Log.i("time", "now")
+                refresh()
+                handler.postDelayed(this, (60* 1000).toLong())
+            }
+
+        }
+        handler.postDelayed(runnable, (stopFor * 1000).toLong())
+
     }
 
     /**
@@ -222,7 +241,8 @@ class TablesActivity : AppCompatActivity(),
      * Reserviert den Table, nachdem von der Methode checkReservation überprüft wurde
      * ob es möglich ist, Ruft refresh auf um das Layout zu aktualisieren
      */
-    fun reserveTable(table: Int, date: String, from: Time,duration: Int, seats: Int) {
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun reserveTable(table: Int, date: String, from: Time, duration: Int, seats: Int) {
         val till = from.addTime(duration)
         val reservation = mutableMapOf<String, Any>()
         reservation["table_id"] = table
@@ -234,6 +254,7 @@ class TablesActivity : AppCompatActivity(),
         reservation["seats_reserved"] = seats
         reservation["ended"] = false
         db.collection("reservation").add(reservation)
+        dialog.hide()
         refresh()
     }
 
@@ -264,6 +285,7 @@ class TablesActivity : AppCompatActivity(),
                                 "ended" to true
                             ))
                             .addOnSuccessListener {
+                                dialog.hide()
                                 refresh()
                             }
                             .addOnFailureListener {
@@ -366,7 +388,9 @@ class TablesActivity : AppCompatActivity(),
                     reservationArray.sortDescending()
                     if(reservationArray.isEmpty())  {
                         dialog.noReservationsAtAll.visibility = View.VISIBLE
+                        dialog.allReservationsView.visibility = View.GONE
                     } else {
+                        dialog.allReservationsView.visibility = View.VISIBLE
                         dialog.noReservationsAtAll.visibility = View.GONE
                         val cardRecyclerView = dialog.allReservationsView
                         cardRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -379,11 +403,26 @@ class TablesActivity : AppCompatActivity(),
     /**
      * Erneuert das Layout
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun refresh() {
-        dialog.hide()
-        val fragmentAdapter = PageAdapter(supportFragmentManager)
+        var item = viewPager.currentItem
+        if(item == 0 && ::fragmentOne.isInitialized) {
+            var view = fragmentOne.view
+            if(view != null) {
+                fragmentOne.getTables(view)
+            }
+        }
+        if(item == 1 && ::fragmentTwo.isInitialized){
+            var view = fragmentTwo.view
+            if(view != null) {
+                fragmentTwo.getTables(view)
+            }
+        }
+        /*val fragmentAdapter = PageAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
+        viewPager.currentItem = item
         tabLayout.setupWithViewPager(viewPager)
+         */
     }
 
     /**
@@ -397,7 +436,8 @@ class TablesActivity : AppCompatActivity(),
                 } else {
                     showReservations(tableId)
                 }
-            }
+                refresh()
         }
+    }
 
 }
